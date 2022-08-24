@@ -1,11 +1,9 @@
 import { Module } from '@nestjs/common';
 import { EventEmitterModule } from '@nestjs/event-emitter';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { NotificationModule } from './notification/notification.module';
+import { ListenersModule } from './listeners/listeners.module';
 
 @Module({
-  imports: [EventEmitterModule.forRoot()],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [EventEmitterModule.forRoot(), NotificationModule, ListenersModule],
 })
 export class AppModule {}
